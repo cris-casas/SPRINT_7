@@ -16,7 +16,7 @@ function App() {
       >
         <input type='text' name='search' autoComplete='off'></input>
         <button type='submit'>Buscar</button>
-        <p>Resultados para: {search}</p> {/* Mostramos el valor*/}
+        <p>Resultados  para: {search}</p> {/* Mostramos el valor*/}
       </form>  
     );
 
