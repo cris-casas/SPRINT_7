@@ -5,24 +5,58 @@ import viteLogo from '/vite.svg'
 
 function App() {
 
-    const [search, setSearch] = useState(''); // Creamos un estado
+    const [checkedValues, setValue] = useState(false); // Creamos un estado
+    const [suma, setSuma] = useState(0);
+
+    // Convé guardar el pressupost total calculat en un estat.
+
+    function handleChange(event){
+
+      const{value, checked} = event.target
+
+      if(checked){
+        setValue(value)
+      }
+    }
+
+    console.log(checkedValues)
 
     return (
-      <form
-        onSubmit={ev => {
-          ev.preventDefault();
-          setSearch(ev.target.search.value); // Recogemos el valor
-        }}
-      >
-        <input type='text' name='search' autoComplete='off'></input>
-        <button type='submit'>Buscar</button>
-        <p>Resultados  para: {search}</p> {/* Mostramos el valor*/}
+      <form>
+        <input type="checkbox" value="500" onChange={handleChange} />
+        <label>Una pàgina web (500€)</label>
+        <p>Resultados para: {checkedValues}</p> {/* Mostramos el valor*/}
       </form>  
     );
 
 };
 
 export default App;
+
+/*
+
+function App() {
+
+  const [search, setSearch] = useState(''); // Creamos un estado
+
+  return (
+    <form
+      onSubmit={ev => {
+        ev.preventDefault();
+        setSearch(ev.target.search.value); // Recogemos el valor
+      }}
+    >
+      <input type='text' name='search' autoComplete='off'></input>
+      <button type='submit'>Buscar</button>
+      <p>Resultados para: {search}</p>
+    </form>  
+  );
+
+};
+
+export default App;
+
+*/
 
 /*  
       <input type="checkbox" id="ads" name="ads"/>
