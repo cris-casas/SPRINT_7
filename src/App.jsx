@@ -5,6 +5,82 @@ import viteLogo from '/vite.svg'
 
 function App() {
 
+  const [isChecked, setIsChecked] = useState([]);
+  const [total, setTotal] = useState(0);
+
+  const handleCheckbox = (event) => {
+    const value = +event.target.value;
+    const checked = event.target.checked;
+
+    if (checked) {
+      setIsChecked([...isChecked, value]);
+      setTotal(total + value);
+    } else {
+      setIsChecked(isChecked.filter((e) => e !== value));
+      setTotal(total - value);
+    }
+  };
+
+  return (
+    <form>
+      <p>¿Qué quieres hacer?</p>
+      <br></br>
+      <input type="checkbox" id="pagina-web" value={500} onChange={handleCheckbox} />
+      <label htmlFor="pagina-web">Una pàgina web (500€)</label>
+      <br></br>
+      <input type="checkbox" id="consultoria-seo" value={300} onChange={handleCheckbox} />
+      <label htmlFor="consultoria-seo">Una consultoria SEO (300€)</label>
+      <br></br>
+      <input type="checkbox" id="campanya-google-ads" value={200} onChange={handleCheckbox} />
+      <label htmlFor="campanya-google-ads">Una campanya de Google Ads (200€)</label>
+      <br></br>
+      <p>Preu: {total}€</p>
+    </form>
+  );
+
+};
+
+export default App;
+
+/*
+function App() {
+
+    const [sumaArray, setSumaArray] = useState([]); // Creamos un estado
+
+    // Convé guardar el pressupost total calculat en un estat.
+
+    const handleChange = (event) => {
+        const value = event.target.value;
+        const checked = event.target.checked;
+        //console.log(value,checked)
+        if(checked){
+          setSumaArray([...sumaArray, Number(value)])
+        }
+        else {
+          setSumaArray(sumaArray.filter((e) => (e !== Number(value))));
+        }
+      }
+
+    return (
+      <form>
+        <input type="checkbox" value="500" onChange={handleChange} />
+        <label>Una pàgina web (500€)</label>
+        <input type="checkbox" value="300" onChange={handleChange} />
+        <label>Una consultoria SEO (300€)</label>
+        <p>Resultados para: {total}</p>
+      </form>  
+    );
+
+};
+
+export default App;
+
+*/
+
+/*
+
+function App() {
+
     const [checkedValues, setValue] = useState(false); // Creamos un estado
     const [suma, setSuma] = useState(0);
 
@@ -23,15 +99,17 @@ function App() {
 
     return (
       <form>
-        <input type="checkbox" value="500" onChange={handleChange} />
+        <input type="checkbox" checked={checkedValues} value="500" onChange={handleChange} />
         <label>Una pàgina web (500€)</label>
-        <p>Resultados para: {checkedValues}</p> {/* Mostramos el valor*/}
-      </form>  
-    );
+        <p>Resultados para: {checkedValues}</p>
+        </form>  
+        );
+    
+    };
+    
+    export default App;
 
-};
-
-export default App;
+*/
 
 /*
 
