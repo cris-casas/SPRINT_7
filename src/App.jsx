@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { useEffect } from 'react'
+import Buttons from "./components/Buttons"
+
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 //import './App.css'
@@ -9,6 +11,18 @@ function App() {
   const [total, setTotal] = useState(0);
   const [numPages, setNumPages] = useState(0);
   const [numLanguages, setNumLanguages] = useState(0);
+
+  const [count, setCount] = useState(0);
+
+  const incrementCount = () => {
+    setCount(count + 1);
+  };
+
+  const decreaseCount = () => {
+    setCount(count - 1);
+  };
+
+  console.log(count);
 
   const handleCheckbox = (event) => {
     const value = +event.target.value;
@@ -45,10 +59,16 @@ function App() {
       <label htmlFor="pagina-web">Una página web (500€)</label>
       <br />
       <label htmlFor="num-pagina-web">Número de páginas</label>
-      <input type="number" min="0" id="num-pagina-web" value={numPages} onChange={handleNumPagesChange} />
+      <input type="text" id="num-pagina-web" value={numPages} onChange={handleNumPagesChange} />
+      <br />
+      <button type="button" onClick={incrementCount}>+</button>
+      <p>{count}</p>
+      <button type="button" onClick={decreaseCount}>-</button>
       <br />
       <label htmlFor="num-idiomas-web">Número de idiomas</label>
-      <input type="number" min="0" id="num-idiomas-web" value={numLanguages} onChange={handleNumLanguagesChange} />
+      <button>+</button>
+      <input type="text" id="num-idiomas-web" value={numLanguages} onChange={handleNumLanguagesChange} />
+      <button>-</button>
       <br />
       <input type="checkbox" id="consultoria-seo" value={300} onChange={handleCheckbox} />
       <label htmlFor="consultoria-seo">Una consultoría SEO (300€)</label>
