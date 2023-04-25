@@ -1,6 +1,7 @@
+
 import { useState } from 'react'
 import { useEffect } from 'react'
-import Buttons from "./components/Buttons"
+import WebOptions from "./components/WebOptions"
 
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
@@ -54,15 +55,14 @@ function App() {
       <input type="checkbox" id="pagina-web" value={500} onChange={handleCheckbox} />
       <label htmlFor="pagina-web">Una página web (500€)</label>
       <br />
-      <label htmlFor="num-pagina-web">Número de páginas</label>
-      <button type="button" onClick={incrementPages}>+</button>
-      <input type="text" id="num-pagina-web" value={numPages}/>
-      <button type="button" onClick={decreasePages}>-</button>
-      <br />
-      <label htmlFor="num-idiomas-web">Número de idiomas</label>
-      <button type="button" onClick={incrementLang}>+</button>
-      <input type="text" id="num-idiomas-web" value={numLanguages}/>
-      <button type="button" onClick={decreaseLang}>-</button>
+      <WebOptions 
+        onIncreasePages={incrementPages}
+        onDecreasePages={decreasePages}
+        onIncrementLang={incrementLang}
+        onDecreaseLang={decreaseLang}
+        numPages={numPages}
+        numLanguages={numLanguages}
+      />
       <br />
       <input type="checkbox" id="consultoria-seo" value={300} onChange={handleCheckbox} />
       <label htmlFor="consultoria-seo">Una consultoría SEO (300€)</label>
