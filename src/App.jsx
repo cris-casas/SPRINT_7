@@ -1,4 +1,3 @@
-
 import { useState } from 'react'
 import { useEffect } from 'react'
 import WebOptions from "./components/WebOptions"
@@ -17,17 +16,23 @@ function App() {
     setNumPages(numPages + 1);
   };
 
-  const decreasePages = () => {
-    setNumPages(numPages - 1);
-  };
+   // Condicional ternario
 
+  const decreasePages = () => numPages > 0 ? setNumPages(numPages - 1) : null;
+
+  /*
+  const decreasePages = () => {
+    if (numPages > 0) {
+      setNumPages(numPages - 1);
+    }
+  };
+  */
+  
   const incrementLang = () => {
     setNumLanguages(numLanguages + 1);
   };
 
-  const decreaseLang = () => {
-    setNumLanguages(numLanguages - 1);
-  };
+  const decreaseLang = () => numLanguages > 0 ? setNumLanguages(numLanguages - 1) : null;
 
   const handleCheckbox = (event) => {
     const value = +event.target.value;
@@ -55,14 +60,14 @@ function App() {
       <input type="checkbox" id="pagina-web" value={500} onChange={handleCheckbox} />
       <label htmlFor="pagina-web">Una página web (500€)</label>
       <br />
-      <WebOptions 
+      {isChecked.includes(500) ? <WebOptions 
         onIncreasePages={incrementPages}
         onDecreasePages={decreasePages}
         onIncrementLang={incrementLang}
         onDecreaseLang={decreaseLang}
         numPages={numPages}
         numLanguages={numLanguages}
-      />
+      /> : null}
       <br />
       <input type="checkbox" id="consultoria-seo" value={300} onChange={handleCheckbox} />
       <label htmlFor="consultoria-seo">Una consultoría SEO (300€)</label>
