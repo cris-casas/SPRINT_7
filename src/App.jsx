@@ -56,10 +56,10 @@ function App() {
   return (
     <form>
       <p>¿Qué quieres hacer?</p>
-      <br />
+      <p>
       <input type="checkbox" id="pagina-web" value={500} onChange={handleCheckbox} />
       <label htmlFor="pagina-web">Una página web (500€)</label>
-      <br />
+      </p>
       {isChecked.includes(500) ? <WebOptions 
         onIncreasePages={incrementPages}
         onDecreasePages={decreasePages}
@@ -68,13 +68,14 @@ function App() {
         numPages={numPages}
         numLanguages={numLanguages}
       /> : null}
-      <br />
+      <p>
       <input type="checkbox" id="consultoria-seo" value={300} onChange={handleCheckbox} />
       <label htmlFor="consultoria-seo">Una consultoría SEO (300€)</label>
-      <br />
+      </p>
+      <p>
       <input type="checkbox" id="campanya-google-ads" value={200} onChange={handleCheckbox} />
       <label htmlFor="campanya-google-ads">Una campaña de Google Ads (200€)</label>
-      <br />
+      </p>
       <p>Preu: {total}€</p>
     </form>
   );

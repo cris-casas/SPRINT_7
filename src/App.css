@@ -1,3 +1,32 @@
+form {
+  margin: 20px;
+}
+
+.web-options {
+  border: solid black 2px;
+  border-radius: 10px;
+  width: 250px;
+  padding: 20px;
+  margin: 10px 0 10px 0;
+}
+
+.web-options input {
+  width: 50px;
+}
+
+.quantity-button {
+  background-color: #FF7518;
+  color: white;
+  padding: 0 5px 0 5px;
+  border-style: none;
+  border-radius: 5px;
+  margin: 5px;
+  font-size: 20pt;
+}
+
+
+
+/*
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -40,3 +69,4 @@
 .read-the-docs {
   color: #888;
 }
+*/
